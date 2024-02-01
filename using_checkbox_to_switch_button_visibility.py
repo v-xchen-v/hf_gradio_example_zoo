@@ -2,9 +2,11 @@ import gradio as gr
 
 def handle_switching(is_check):
     if is_check:
-        return gr.Button.update(visible=True), gr.Button.update(visible=False)
+        # return gr.Button.update(visible=True), gr.Button.update(visible=False)
+        # ! in previous version e.g. 3.44, update component configurations by update interface, but in latest version e.g. 4.16, by return new component with the properties we want to change, any arguments we do not set will use their previous values.
+        return gr.Button(visible=True), gr.Button(visible=False)
     else:
-        return gr.Button.update(visible=False), gr.Button.update(visible=True)
+        return gr.Button(visible=False), gr.Button(visible=True)
         
 with gr.Blocks() as demo:
     # create a checkbox, default as checked
